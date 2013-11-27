@@ -28,8 +28,8 @@ namespace UniMoodle
         public Boolean logado = false;
 
         //variavel que guarda o token para acesso ao WebService
-        public string token = "7d3f9b36ddd98f98f9d265d48b8dd34e";
-        //public string token = "dcd76d8f4e2d7ac79e64fa709c4248d5";
+        public string token = "";
+        
 
         //variavel para guardar o local do servidor webservice        
         public string local = "http://192.241.238.82/2014/webservice/";
