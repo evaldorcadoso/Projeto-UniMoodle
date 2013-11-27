@@ -1,0 +1,113 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="UniMoodle.menuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="UNIMOODLE" Background="#FFFF9B06">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="menu">
+                
+                <Grid Background="{x:Null}">
+                    <Image Name="logo" Source="/UniMoodle;component/imagens/iconeUniMoodle.png" Opacity="0.1" />
+                    <TextBlock x:Name="txtbNomeAluno" HorizontalAlignment="Center" Margin="0,-2,0,0" TextWrapping="Wrap" Text="Nome do usuário" VerticalAlignment="Top" FontSize="30" Width="350" Height="45" TextAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Left" Margin="0,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="45" Width="446" FontSize="28" TextAlignment="Center" Foreground="#FF060606" FontFamily="Corbel" FontWeight="Bold" Name="txtbCabecalho" />
+                    <ProgressBar x:Name="barraProgresso" HorizontalAlignment="Left" Height="20" Margin="3,40,0,0" VerticalAlignment="Top" Width="440" Background="RoyalBlue" BorderBrush="RoyalBlue" Foreground="RoyalBlue" />
+                <ScrollViewer Margin="12,107,2,3" Width="442" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                    <ListBox x:Name="lstAtividades" HorizontalAlignment="Left" Height="385" VerticalAlignment="Top" Width="442" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                            <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <!--<Button Height="110"  Tag="{Binding id}" Click="Button_Click_1" FontFamily="Corbel" Width="442" CommandParameter="{Binding courseid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" BorderBrush="Transparent" Foreground="Transparent">
+                                    <Button.Content>-->
+                                    <Grid Tag="{Binding id}" Height="100" Margin="0,5,0,0" Width="440" HorizontalAlignment="Left" VerticalAlignment="Top" Tap="Grid_Tap" Background="#FFFF8B00">
+                                        <Grid Margin="0" Height="90" Width="80" HorizontalAlignment="Left">
+                                            <Image x:Name="imgTarefa" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="80" Margin="0" Source="/UniMoodle;component/Images/appbar.page.text.png" />
+                                        </Grid>
+                                    	<Grid Margin="85,0,0,0" Height="100" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <TextBlock Text="{Binding itemname}" FontSize="25.333" Height="45" TextWrapping="NoWrap" Width="350" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+                                                <TextBlock Text="{Binding prazo}" FontSize="19" TextWrapping="NoWrap" Width="160" Foreground="#FF000000" FontFamily="Corbel" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                <TextBlock Text="{Binding nome_curso}" FontSize="20" Height="30" Foreground="#FF034569" Width="350" TextWrapping="NoWrap" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,45,0,0" />
+                                                <TextBlock Text="{Binding date}" FontFamily="Microsoft Sans Serif" FontSize="20" TextAlignment="Left" Foreground="#FF086CA2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170" />
+                                        </Grid>
+                                    </Grid>
+                                <!--</Button.Content>
+                                </Button>-->
+                        </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="meus cursos">
+                <Grid>
+                    <Image Name="logoPivot2" Source="/UniMoodle;component/imagens/iconeUniMoodle.png" Opacity="0.1" />
+                    <ScrollViewer Height="462" Margin="0,73,0,0">
+                        <ListBox x:Name="lstCursos" HorizontalAlignment="Left" Height="460" Margin="0" VerticalAlignment="Top" Width="450">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<Button Height="110" CommandParameter="{Binding fullname}" Background="#FFD68306" Tag="{Binding id}" Click="button_curso_click" FontFamily="Corbel" Width="442" BorderBrush="#FFD68306" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0">
+                                        <Button.Content>-->
+                                            <Grid Height="100" Width="440" Background="#FFFF8B00" Margin="0,5,0,0" Tap="Grid_Tap_1" Tag="{Binding id}">
+                                                <Image x:Name="imgCurso" Height="70" Width="80" Source="/UniMoodle;component/Images/appbar.book.perspective.png" Margin="3,0,355,0" VerticalAlignment="Top" />
+                                                <TextBlock Text="{Binding fullname}" FontSize="25" Height="60" Foreground="#FFFFFFFF" Width="353" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="85,0,0,0" FontFamily="Microsoft Sans Serif" FontWeight="Bold" TextAlignment="Left"/>
+                                            </Grid>
+                                        <!--</Button.Content>
+                                    </Button>-->
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                    </ScrollViewer>
+                    <TextBlock x:Name="txtbVazio" Text="" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="28" FontFamily="Corbel" FontWeight="Bold" Foreground="Black" Margin="70,-14,83,0" Height="55" Width="303" TextAlignment="Center" />
+                    <ProgressBar x:Name="barraProgresso2" HorizontalAlignment="Left" Height="20" Margin="6,48,0,0" VerticalAlignment="Top" Width="440" Background="RoyalBlue" BorderBrush="RoyalBlue" Foreground="RoyalBlue" />
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item three-->
+            <controls:PivotItem Header="configurações">
+                <Grid>
+                    <Image Name="logoPivot3" Source="/UniMoodle;component/imagens/iconeUniMoodle.png" Opacity="0.1" />
+                    <ListBox Name="lstLembretes" Width="450" Height="300" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" ItemsSource="{Binding}" FontSize="26" Foreground="Black">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Background="#FFFF8B00" Width="450" Height="80" Margin="0,5,0,0">
+                                    <Grid Width="80" Height="80" HorizontalAlignment="Right" Background="Red">
+                                        <Image Source="/UniMoodle;component/icones/appbar.delete.png" Width="80" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Stretch="None" Margin="0,-8" Tag="{Binding name}" Tap="Image_Tap"/>
+                                    </Grid>
+                                    <TextBlock FontFamily="Corbel" FontSize="20" Text="{Binding title}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" TextWrapping="Wrap" Height="60" Foreground="#FFFFFFFF"/>
+                                    <TextBlock FontFamily="Corbel" FontSize="20" Text="{Binding date}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,0" Foreground="#FFFFFFFF" Height="20" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Height="40" HorizontalAlignment="Center" Name="txtbLembretesAtivos" Text="Sem lembretes" VerticalAlignment="Top" FontFamily="Corbel" FontSize="30" TextAlignment="Center" FontWeight="Bold" />
+                </Grid>
+            </controls:PivotItem>
+
+        </controls:Pivot>
+        
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar x:Name="ABmenuItemSobre" IsVisible="True" IsMenuEnabled="False" >
+            <shell:ApplicationBarIconButton x:Name="Atualizar" IconUri="icones/appbar.refresh.png" Text="Atualizar" Click="Atualizar_Click"/>
+            <shell:ApplicationBarIconButton IconUri="icones/questionmark.png" Text="Sobre" Click="ApplicationBarIconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="icones/favs.png" Text="Avaliar" Click="ApplicationBarIconButton_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="Logout" IconUri="icones/appbar.key.png" Text="Desconectar" Click="Logout_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
